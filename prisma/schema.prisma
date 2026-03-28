@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Attendance {
+  id        String   @id @default(uuid())
+  empId     String
+  name      String
+  email     String
+  date      String
+  inTime    String
+  outTime   String   @default("-")
+  hours     String   @default("-")
+  status    String   @default("Present")
+  location  String
+  leaveType String   @default("-")
+  remark    String   @default("-")
+  rawIn     DateTime @default(now())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
